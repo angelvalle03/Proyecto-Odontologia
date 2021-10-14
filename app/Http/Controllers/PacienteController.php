@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Paciente;
 
 class PacienteController extends Controller
 {
@@ -13,7 +14,8 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
+        $pacientes = Paciente::paginate(5);
+        return view('pacientes.index', compact('pacientes'));
     }
 
     /**
@@ -23,7 +25,7 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('pacientes.create');
     }
 
     /**
@@ -34,7 +36,23 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nac' => 'required',
+            'lugar_nac' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'correo' => 'required|unique:pacientes',
+            'ocupacion' => 'required',
+            'tipo_de_sangre' => 'required',
+            'aspecto_paciente' => 'required',
+            'prediagnostico' => 'required',
+        ]);
+        
+        $pacientes = Paciente::create($request->all());
+        return redirect()->route('pacientes.index', $pacientes)->with('info', 'El paciente se creó con exito!');;
+    
     }
 
     /**
@@ -43,9 +61,9 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Paciente $paciente)
     {
-        //
+        return view('pacientes.show',compact('paciente'));
     }
 
     /**
@@ -54,9 +72,9 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Paciente $paciente)
     {
-        //
+        return view('pacientes.edit',compact('paciente'));
     }
 
     /**
@@ -66,9 +84,27 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Paciente $paciente)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nac' => 'required',
+            'lugar_nac' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'correo' => 'required',
+            'ocupacion' => 'required',
+            'tipo_de_sangre' => 'required',
+            'aspecto_paciente' => 'required',
+            'prediagnostico' => 'required',
+        ]);
+        
+        $paciente->update($request->all());
+
+        return redirect()->route('pacientes.index', $paciente)->with('info', 'El paciente se actualizó con exito!');
+
+    
     }
 
     /**
@@ -77,8 +113,11 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Paciente $paciente)
     {
-        //
+        $paciente->delete();
+        return redirect()->route('pacientes.index')->with('info', 'El paciente se eliminó exitosamente!');
     }
 }
+
+

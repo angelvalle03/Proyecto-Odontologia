@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'admin',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -239,12 +239,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'Dashboard',
-            'url'         => 'admin',
-            'icon'        => 'far fa-fw fa-file',
-            
-        ],
+        
         ['header' => ''],
         [
             'text' => 'Pacientes',

@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('pacientes', PacienteController::class)->names('pacientes')->middleware('auth');
+Route::resource('pacientes', PacienteController::class)->names('pacientes');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
-    return view('admin');
-})->name('admin');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

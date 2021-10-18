@@ -14,7 +14,7 @@
     @endif 
     <div class="card">
         <div class="card-header">
-            <a class="btn btn-secondary" href="{{route('pacientes.create')}}">Agregar paciente</a>
+            <a class="btn btn-primary" href="{{route('pacientes.create')}}">Agregar paciente</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">

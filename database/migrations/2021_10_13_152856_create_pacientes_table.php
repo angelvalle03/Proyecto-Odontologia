@@ -18,6 +18,7 @@ class CreatePacientesTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->date('fecha_nac');
+            $table->time('hora');
             $table->string('lugar_nac');
             $table->string('direccion');
             $table->string('telefono');

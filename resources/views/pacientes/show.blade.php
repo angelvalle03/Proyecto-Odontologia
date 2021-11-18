@@ -12,17 +12,25 @@
     <div class="card-header">
         <div class="container">
             <div class="row">
+                @can('pacientes.edit')
                 <div class="col-2 col-md-1">
-                    <a class="btn btn-primary btn-sm" href="{{route('pacientes.edit', $paciente)}}">Editar</a>
+                    
+                        <a class="btn btn-primary btn-sm" href="{{route('pacientes.edit', $paciente)}}">Editar</a>
+
+                    
                 </div>
-                
+                @endcan
+                @can('pacientes.destroy')
                 <div class="col-6 col-md-6">
-                    <form action="{{route('pacientes.destroy', $paciente)}}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="btn btn-danger btn-sm ">Eliminar</button>
-                    </form>
+                    
+                        <form action="{{route('pacientes.destroy', $paciente)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm ">Eliminar</button>
+                        </form>
+                    
                 </div>
+                @endcan
             </div>
             
         </div>
@@ -60,6 +68,14 @@
                     <div class="col-sm-6 form-group">
                         {!! Form::label('lugar_nac', 'Lugar de nacimiento', []) !!}
                         {!! Form::text('lugar_nac', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el lugar de nacimiento', 'readonly']) !!}
+                    
+                        @error('lugar_nac')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        {!! Form::label('hora', 'Hora', []) !!}
+                        {!! Form::text('hora', null, ['class' => 'form-control', 'readonly']) !!}
                     
                         @error('lugar_nac')
                             <span class="text-danger">{{$message}}</span>

@@ -11,6 +11,8 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -19,6 +21,16 @@ class User extends Authenticatable
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
+
+    //Relacion mucho a mucho con horarios
+    public function horarios(){
+        return $this->belongsToMany('App\Models\Horario');
+    }
+    
+    public function cita(){
+        return $this->belongsTo('App\Models\Cita');
+    }
 
     /**
      * The attributes that are mass assignable.

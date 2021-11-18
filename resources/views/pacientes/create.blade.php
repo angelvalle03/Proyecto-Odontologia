@@ -43,6 +43,14 @@
                 @enderror
             </div>
             <div class="form-group">
+                {!! Form::label('hora', 'Hora', []) !!}
+                {!! Form::time('hora', null, ['class' => 'form-control']) !!}
+            
+                @error('lugar_nac')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+            <div class="form-group">
                 {!! Form::label('direccion', 'Direccion', []) !!}
                 {!! Form::text('direccion', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la direccion del paciente']) !!}
             

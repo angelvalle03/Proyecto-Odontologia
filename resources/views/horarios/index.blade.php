@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Pacientes')
+@section('title', 'Horarios')
 
 @section('content_header')
-    <h1>Listado de pacientes</h1>
+    <h1>Listado de horarios</h1>
 @stop
 
 @section('content')
@@ -13,43 +13,41 @@
         </div>
     @endif 
     <div class="card">
-        @can('pacientes.create')
+        {{-- @can('pacientes.create') --}}
         <div class="card-header">
-            <a class="btn btn-primary" href="{{route('pacientes.create')}}">Agregar paciente</a>
+            <a class="btn btn-primary" href="{{route('horarios.create')}}">Agregar horario</a>
         </div>
-        @endcan
+        {{-- @endcan --}}
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
+                        
+                        <th>Hora de inicio</th>
+                        <th>Hora de finalizacion</th>
                         <th colspan="1"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pacientes as $paciente)
+                    @foreach ($horarios as $horario)
                         <tr>
-                            <td>{{$paciente->id}}</td>
-                            <td>{{$paciente->nombre}}</td>
-                            <td>{{$paciente->apellido}}</td>
-                            <td>{{$paciente->correo}}</td>
+                            <td>{{$horario->id}}</td>
+                            
+                            <td>{{$horario->hora_inicio}}</td>
+                            <td>{{$horario->hora_fin}}</td>
 
                             
                             <td width="10px">
                                 
-                                <a class="btn btn-success btn-sm" href="{{route('pacientes.show', $paciente)}}">Ver</a>
+                                <a class="btn btn-success btn-sm" href="{{route('horarios.edit', $horario)}}">Editar</a>
                             </td>
                             
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex justify-content-end">
-                {!! $pacientes->links() !!}
-            </div>
+            
         </div>
     </div>
 @stop

@@ -55,9 +55,12 @@
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
-                            <a href="{{route('pacientes.index')}}" class="ml-1 underline">
-                                <strong>PACIENTES</strong> 
+                            @can('pacientes.index')
+                            <a href="{{route('admin.index')}}" class="ml-1 underline">
+                                <strong>Gestion de citas y usuarios</strong> 
                             </a>
+                            @endcan
+                            
                         </div>
                     </div>
 

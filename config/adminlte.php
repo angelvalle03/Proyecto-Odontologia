@@ -253,16 +253,18 @@ return [
             'icon' => 'fas fa-users fa-fw',
             'can' => 'users.index',
         ],
-        ['header' => 'Opciones de citas'],
+        ['header' => 'Opciones de citas', 'can'=>'citas.create'],
         [
             'text' => ' Citas',
             'route'  => 'citas.index',
             'icon' => 'far fa-calendar',
+            'can' => 'citas.index'
         ],
         [
             'text' => ' Agendar Cita',
             'route'  => 'citas.create',
             'icon' => 'far fa-calendar-plus',
+            'can' => 'citas.create'
         ],
         ['header' => 'Opciones de horarios', 'can'=>'horarios.index'],
         [
@@ -271,19 +273,14 @@ return [
             'icon' => 'far fa-calendar',
             'can' => 'horarios.index',
         ],
-        ['header' => 'Opciones de doctores', 'can'=>'horarios.index'],
+        ['header' => 'Opciones de doctores', 'can'=>'doctores.index'],
         [
             'text' => 'Doctores',
             'route'  => 'doctores.index',
             'icon' => 'far fa-calendar',
-            // 'can' => 'horarios.index',
+            'can' => 'doctores.index',
         ],
-        [
-            'text' => 'Asignar horario a doctor',
-            'url'  => '/',
-            'icon' => 'far fa-calendar',
-            // 'can' => 'horarios.index',
-        ],
+        
         ['header' => 'Opciones de roles', 'can'=>'roles.index'],
         [
             'text' => 'Roles',

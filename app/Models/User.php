@@ -25,11 +25,11 @@ class User extends Authenticatable
 
     //Relacion mucho a mucho con horarios
     public function horarios(){
-        return $this->belongsToMany('App\Models\Horario');
+        return $this->belongsToMany(Horario::class);
     }
     
     public function cita(){
-        return $this->belongsTo('App\Models\Cita');
+        return $this->belongsTo(Cita::class);
     }
 
     /**

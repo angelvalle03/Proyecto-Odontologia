@@ -26,7 +26,7 @@
                     <th>Fecha</th>
                     <th>Hora de incio</th>
                     <th>Hora de finalizacion</th>
-                    <th>Descripcion</th>
+                    <th>Doctor</th>
                     <th colspan="2"></th>
                 </tr>
             </thead>
@@ -35,9 +35,24 @@
                     <tr>
                         <td>{{$cita->id}}</td>
                         <td>{{$cita->fecha}}</td>
-                        <td>{{$cita->doctor->name}}</td>
-                        <td>{{$cita->horario->hora_inicio}}</td>
-                        <td>{{$cita->horario->hora_fin}}</td>
+                        @foreach ($horarios as $hor)
+                            @if ($hor->id == $cita->hora_atencion)
+                                <td>{{$hor->hora_inicio}}</td>
+                            @endif
+                        @endforeach
+                        @foreach ($horarios as $hor)
+                            @if ($hor->id == $cita->hora_atencion)
+                                <td>{{$hor->hora_fin}}</td>
+                            @endif
+                        @endforeach
+                        
+                        @foreach ($doctores as $doct)
+                            @if ($doct->id == $cita->doctor)
+                                <td>{{$doct->name}}</td>
+                            @endif
+                        @endforeach
+                        
+                        {{-- <td>{{$cita->horarios->hora_fin}}</td> --}}
                         
                         <td width="10px">
                             <a class="btn btn-success btn-sm" href="{{route('citas.edit', $cita)}}">Editar</a>

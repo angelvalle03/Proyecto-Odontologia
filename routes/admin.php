@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\CitasController;
 use App\Http\Controllers\DoctoresController;
+use App\Http\Controllers\DoctoresHorariosController;
 use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
+
 
 
 
@@ -18,4 +20,4 @@ Route::resource('users', UserController::class)->only(['index','edit','update'])
 Route::resource('horarios', HorarioController::class)->except('show')->names('horarios');
 Route::resource('roles', RolController::class)->except('show')->names('roles');
 Route::resource('citas', CitasController::class)->except('show')->names('citas');
-Route::resource('doctores', DoctoresController::class)->except('show')->names('doctores');
+Route::resource('doctores', DoctoresController::class)->names('doctores');

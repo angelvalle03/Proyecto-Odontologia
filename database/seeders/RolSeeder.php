@@ -33,6 +33,12 @@ class RolSeeder extends Seeder
         Permission::create(['name'=>'roles.create', 'description'=>'Crear un nuevo rol'])->syncRoles([$role1]);
         Permission::create(['name'=>'roles.edit', 'description'=>'Editar un rol'])->syncRoles([ $role1]);
         Permission::create(['name'=>'roles.destroy', 'description'=>'Eliminar un rol'])->syncRoles([$role1]);
+
+        Permission::create(['name'=>'doctores.index', 'description'=>'Ver listado de doctores'])->syncRoles([$role1]);
+        Permission::create(['name'=>'doctores.edit', 'description'=>'Editar un doctor'])->syncRoles([ $role1]);
         
+        Permission::create(['name'=>'citas.index', 'description'=>'Ver listado de citas'])->syncRoles([$role1,$role2]);
+        Permission::create(['name'=>'citas.create', 'description'=>'Crear una cita'])->syncRoles([$role1,$role2]);
+        Permission::create(['name'=>'citas.edit', 'description'=>'Editar una cita'])->syncRoles([ $role1,$role2]);
     }
 }

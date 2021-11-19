@@ -21,17 +21,17 @@
                 
                 <div class="col-md-12 form-group ">
                     {!! Form::label('id', 'Id', []) !!}
-                    {!! Form::text('id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del paciente']) !!}
+                    {!! Form::text('id', null, ['class' => 'form-control']) !!}
             
-                    @error('nombre')
+                    @error('id')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
                 <div class="col-md-12 form-group">
                     {!! Form::label('name', 'Nombre', []) !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el apellido del paciente']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 
-                    @error('apellido')
+                    @error('name')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
@@ -39,7 +39,7 @@
                     {!! Form::label('email', 'Email', []) !!}
                     {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el apellido del paciente']) !!}
                 
-                    @error('apellido')
+                    @error('email')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>

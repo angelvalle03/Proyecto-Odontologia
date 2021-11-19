@@ -14,9 +14,9 @@
     @endif 
     <div class="card">
         {{-- @can('pacientes.create') --}}
-        <div class="card-header">
+        {{-- <div class="card-header">
             <a class="btn btn-primary" href="{{route('doctores.create')}}">Agregar horario a un doctor</a>
-        </div>
+        </div> --}}
         {{-- @endcan --}}
         <div class="card-body">
             <table class="table table-striped">
@@ -25,22 +25,22 @@
                         <th>ID</th>
                         
                         <th>Nombre</th>
-                        <th colspan="1"></th>
+                        <th colspan="3"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($doctores as $doctor)
+                    @foreach ($doctores as $doctore)
                         <tr>
-                            <td>{{$doctor->id}}</td>
+                            <td>{{$doctore->id}}</td>
                             
-                            <td>{{$doctor->name}}</td>
+                            <td>{{$doctore->name}}</td>
+                            <td>{{$doctore->id}}</td>
                             
 
                             
-                            {{-- <td width="10px">
-                                
-                                <a class="btn btn-success btn-sm" href="{{route('horarios.edit', $horario)}}">Editar</a>
-                            </td> --}}
+                            <td width="200px" >
+                                <a class="btn btn-success btn-sm" href="{{route('doctores.edit', $doctore)}}">Asignar Horario</a>
+                            </td>
                             
                         </tr>
                     @endforeach

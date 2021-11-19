@@ -12,12 +12,12 @@ class Horario extends Model
 
     //relacion uno a muchos
     public function citas (){
-        return $this->hasMany('App\Models\Cita');
+        return $this->hasMany(Cita::class);
     }
 
     //Relacion mucho a mucho con horarios
     public function users(){
-        return $this->belongsToMany('App/Models/User');
+        return $this->belongsToMany(User::class);
     }
 
 }
